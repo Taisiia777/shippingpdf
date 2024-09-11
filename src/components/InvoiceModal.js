@@ -318,7 +318,7 @@
   import { BiPaperPlane, BiCloudDownload } from "react-icons/bi";
   import { PDFDocument, rgb, StandardFonts } from 'pdf-lib';
   import { saveAs } from 'file-saver';
-  import BL_red from './BL_red.pdf'; // Load your template PDF
+  import BL_red from './BL_blank.pdf'; // Load your template PDF
 
 
   // Функция для разбиения текста на строки
@@ -418,9 +418,13 @@
       color: rgb(0, 0, 0),
       
     });
+    drawTextWithWrapping(`${props.info.containerNo}`, 25, height - 557); // Позиция для описания
+    drawTextWithWrapping(`${props.info.sealNo}`, 133, height - 557); // Позиция для описания
+    drawTextWithWrapping(`${props.info.packagesUnit}`, 220, height - 557); // Позиция для описания
+    drawTextWithWrapping(`${props.info.grWeight}`, 343, height - 557); // Позиция для описания
     drawTextWithWrapping(`${props.info.freight}`, 27, height - 625);
     drawTextWithWrapping(`${props.info.issue}`, 175, height - 704);
-    drawTextWithWrapping(`${props.info.slr}`, 380, height - 787);
+    drawTextWithWrapping(`${props.info.slr}`, 400, height - 787);
 
     const pdfBytes = await pdfDoc.save();
     const blob = new Blob([pdfBytes], { type: 'application/pdf' });

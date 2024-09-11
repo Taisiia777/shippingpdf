@@ -31,6 +31,10 @@ class InvoiceForm extends React.Component {
       place: '',
       freight: '',
       issue: '',
+      containerNo: '',
+      sealNo:'',
+      packagesUnit:'',
+      grWeight: '',
       slr: '',
       notes: '',
       total: '0.00',
@@ -176,19 +180,28 @@ class InvoiceForm extends React.Component {
                 <Form.Control placeholder={"B/L No."} rows={3} value={this.state.billFrom} type="text" name="billFrom" className="my-2" onChange={(event) => this.editField(event)} autoComplete="name" required="required"/>
                 <Form.Label className="fw-bold">Booking No.:</Form.Label>
                 <Form.Control placeholder={"Booking No."} value={this.state.billFromEmail} type="text" name="billFromEmail" className="my-2" onChange={(event) => this.editField(event)} autoComplete="email" required="required"/>
-                
-              </Col>
-              <Col>
-              <Form.Label className="fw-bold">Vessel:</Form.Label>
+                <Form.Label className="fw-bold">Vessel:</Form.Label>
                 <Form.Control placeholder={"Vessel"} value={this.state.billFromAddress} type="text" name="billFromAddress" className="my-2" autoComplete="address" onChange={(event) => this.editField(event)} required="required"/>
                 <Form.Label className="fw-bold">Voyage No.:</Form.Label>
                 <Form.Control placeholder={"Voyage No."} value={this.state.voyage} type="text" name="voyage" className="my-2" autoComplete="address" onChange={(event) => this.editField(event)} required="required"/>
+              </Col>
+              <Col>
                 <Form.Label className="fw-bold">Port of loading:</Form.Label>
                 <Form.Control placeholder={"Port of loading"} value={this.state.port} type="text" name="port" className="my-2" autoComplete="address" onChange={(event) => this.editField(event)} required="required"/>
                 <Form.Label className="fw-bold">Port of discharge:</Form.Label>
                 <Form.Control placeholder={"Port of discharge"} value={this.state.portTo} type="text" name="portTo" className="my-2" autoComplete="address" onChange={(event) => this.editField(event)} required="required"/>
                 <Form.Label className="fw-bold">Place of delivery:</Form.Label>
                 <Form.Control placeholder={"Place of delivery"} value={this.state.place} type="text" name="place" className="my-2" autoComplete="address" onChange={(event) => this.editField(event)} required="required"/>
+                
+                <Form.Label className="fw-bold">CONTAINER NO:</Form.Label>
+                <Form.Control placeholder={"CONTAINER NO"} value={this.state.containerNo} type="text" name="containerNo" className="my-2" autoComplete="address" onChange={(event) => this.editField(event)} required="required"/>
+                <Form.Label className="fw-bold">SEAL NO:</Form.Label>
+                <Form.Control placeholder={"SEAL NO"} value={this.state.sealNo} type="text" name="sealNo" className="my-2" autoComplete="address" onChange={(event) => this.editField(event)} required="required"/>
+                <Form.Label className="fw-bold">PACKAGES(UNIT):</Form.Label>
+                <Form.Control placeholder={"PACKAGES(UNIT)"} value={this.state.packagesUnit} type="text" name="packagesUnit" className="my-2" autoComplete="address" onChange={(event) => this.editField(event)} required="required"/>
+                <Form.Label className="fw-bold">GR. WEIGHT</Form.Label>
+                <Form.Control placeholder={"GR. WEIGHT"} value={this.state.grWeight} type="text" name="grWeight" className="my-2" autoComplete="address" onChange={(event) => this.editField(event)} required="required"/>
+
                 <Form.Label className="fw-bold">Freight & Charges:</Form.Label>
                 <Form.Control placeholder={"Freight & Charges"} value={this.state.freight} type="text" name="freight" className="my-2" autoComplete="address" onChange={(event) => this.editField(event)} required="required"/>
                 <Form.Label className="fw-bold">Place of Issue of B/L:</Form.Label>
