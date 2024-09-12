@@ -318,7 +318,7 @@
   import { BiPaperPlane, BiCloudDownload } from "react-icons/bi";
   import { PDFDocument, rgb, StandardFonts } from 'pdf-lib';
   import { saveAs } from 'file-saver';
-  import BL_red from './BL_blank.pdf'; // Load your template PDF
+  import BL_red from './BL.pdf'; // Load your template PDF
 
 
   // Функция для разбиения текста на строки
@@ -386,8 +386,13 @@
 
     // Отрисовка с переносом текста для каждого поля
     drawTextWithWrapping(`${props.info.billTo}`, 25, height - 60);
+    drawTextWithWrapping(`${props.info.shipper}`, 25, height - 80);
     drawTextWithWrapping(`${props.info.billToEmail}`, 28, height - 132);
-    drawTextWithWrapping(`${props.info.billToAddress}`, 22, height - 202);
+    drawTextWithWrapping(`${props.info.consignee}`, 28, height - 142);
+    drawTextWithWrapping(`${props.info.consignee1}`, 28, height - 162);
+    drawTextWithWrapping(`${props.info.billToAddress}`, 28, height - 202);
+    drawTextWithWrapping(`${props.info.notify}`, 28, height - 212);
+    drawTextWithWrapping(`${props.info.notify1}`, 28, height - 232);
     drawTextWithWrapping(`${props.info.billFrom}`, 443, height - 35);
     drawTextWithWrapping(`${props.info.billFromEmail}`, 458, height - 55);
     drawTextWithWrapping(`${props.info.billFromAddress}`, 30, height - 276);

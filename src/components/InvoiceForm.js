@@ -35,6 +35,11 @@ class InvoiceForm extends React.Component {
       sealNo:'',
       packagesUnit:'',
       grWeight: '',
+      shipper:'',
+      consignee: '',
+      consignee1: '',
+      notify: '',
+      notify1: '',
       slr: '',
       notes: '',
       total: '0.00',
@@ -172,10 +177,15 @@ class InvoiceForm extends React.Component {
               <Col>
                 <Form.Label className="fw-bold">Shipper:</Form.Label>
                 <Form.Control placeholder={"Shipper"} rows={3} value={this.state.billTo} type="text" name="billTo" className="my-2" onChange={(event) => this.editField(event)} autoComplete="name" required="required"/>
+                <Form.Control placeholder={"Shipper"} rows={3} value={this.state.shipper} type="text" name="shipper" className="my-2" onChange={(event) => this.editField(event)} autoComplete="name" required="required"/>
                 <Form.Label className="fw-bold">Consignee:</Form.Label>
                 <Form.Control placeholder={"Consignee"} value={this.state.billToEmail} type="text" name="billToEmail" className="my-2" onChange={(event) => this.editField(event)} autoComplete="email" required="required"/>
+                <Form.Control placeholder={"Consignee"} value={this.state.consignee} type="text" name="consignee" className="my-2" onChange={(event) => this.editField(event)} autoComplete="email" required="required"/>
+                <Form.Control placeholder={"Consignee"} value={this.state.consignee1} type="text" name="consignee1" className="my-2" onChange={(event) => this.editField(event)} autoComplete="email" required="required"/>
                 <Form.Label className="fw-bold">Notify Party:</Form.Label>
                 <Form.Control placeholder={"Notify Party"} value={this.state.billToAddress} type="text" name="billToAddress" className="my-2" autoComplete="address" onChange={(event) => this.editField(event)} required="required"/>
+                <Form.Control placeholder={"Notify Party"} value={this.state.notify} type="text" name="notify" className="my-2" autoComplete="address" onChange={(event) => this.editField(event)} required="required"/>
+                <Form.Control placeholder={"Notify Party"} value={this.state.notify1} type="text" name="notify1" className="my-2" autoComplete="address" onChange={(event) => this.editField(event)} required="required"/>
                 <Form.Label className="fw-bold">B/L No.:</Form.Label>
                 <Form.Control placeholder={"B/L No."} rows={3} value={this.state.billFrom} type="text" name="billFrom" className="my-2" onChange={(event) => this.editField(event)} autoComplete="name" required="required"/>
                 <Form.Label className="fw-bold">Booking No.:</Form.Label>
