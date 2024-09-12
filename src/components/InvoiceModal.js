@@ -387,6 +387,7 @@
     // Отрисовка с переносом текста для каждого поля
     drawTextWithWrapping(`${props.info.billTo}`, 25, height - 60);
     drawTextWithWrapping(`${props.info.shipper}`, 25, height - 80);
+    drawTextWithWrapping(`${props.info.shipper1}`, 25, height - 100);
     drawTextWithWrapping(`${props.info.billToEmail}`, 28, height - 132);
     drawTextWithWrapping(`${props.info.consignee}`, 28, height - 142);
     drawTextWithWrapping(`${props.info.consignee1}`, 28, height - 162);

@@ -36,6 +36,7 @@ class InvoiceForm extends React.Component {
       packagesUnit:'',
       grWeight: '',
       shipper:'',
+      shipper1:'',
       consignee: '',
       consignee1: '',
       notify: '',
@@ -176,8 +177,9 @@ class InvoiceForm extends React.Component {
             <Row className="mb-5">
               <Col>
                 <Form.Label className="fw-bold">Shipper:</Form.Label>
-                <Form.Control placeholder={"Shipper"} rows={3} value={this.state.billTo} type="text" name="billTo" className="my-2" onChange={(event) => this.editField(event)} autoComplete="name" required="required"/>
-                <Form.Control placeholder={"Shipper"} rows={3} value={this.state.shipper} type="text" name="shipper" className="my-2" onChange={(event) => this.editField(event)} autoComplete="name" required="required"/>
+                <Form.Control placeholder={"Name"} rows={3} value={this.state.billTo} type="text" name="billTo" className="my-2" onChange={(event) => this.editField(event)} autoComplete="name" required="required"/>
+                <Form.Control placeholder={"Adress"} rows={3} value={this.state.shipper} type="text" name="shipper" className="my-2" onChange={(event) => this.editField(event)} autoComplete="name" required="required"/>
+                <Form.Control placeholder={"Contact"} rows={3} value={this.state.shipper1} type="text" name="shipper1" className="my-2" onChange={(event) => this.editField(event)} autoComplete="name" required="required"/>
                 <Form.Label className="fw-bold">Consignee:</Form.Label>
                 <Form.Control placeholder={"Name"} value={this.state.billToEmail} type="text" name="billToEmail" className="my-2" onChange={(event) => this.editField(event)} autoComplete="email" required="required"/>
                 <Form.Control placeholder={"Adress"} value={this.state.consignee} type="text" name="consignee" className="my-2" onChange={(event) => this.editField(event)} autoComplete="email" required="required"/>
