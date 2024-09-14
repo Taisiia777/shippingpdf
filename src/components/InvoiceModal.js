@@ -334,7 +334,9 @@
       drawTextWithWrapping(`${item.seal}`, 25, yPosition - 10);       // Позиция для имени
       drawTextWithWrapping(`KGs`, 453, yPosition);     // Позиция для цены
       drawTextWithWrapping(`${item.price}`, 450, yPosition - 10);     // Позиция для цены
-      drawTextWithWrapping(`${item.description}`, 157, yPosition - 1); // Позиция для описания
+      drawTextWithWrapping(`${item.descriptionName}`, 157, yPosition - 1); // Позиция для описания
+      drawTextWithWrapping(`${item.descriptionQuantity}`, 157, yPosition - 11); // Позиция для описания
+      drawTextWithWrapping(`${item.descriptionContacts}`, 157, yPosition - 21); // Позиция для описания
       drawTextWithWrapping(`HS CODE: ${item.hs}`, 155, yPosition - 53); // Позиция для описания
       drawTextWithWrapping(`ED NO ${item.ed}`, 155, yPosition - 73); // Позиция для описания
 

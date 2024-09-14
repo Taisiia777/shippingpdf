@@ -67,9 +67,27 @@ class ItemRow extends React.Component {
             onItemizedItemEdit={this.props.onItemizedItemEdit}
             cellData={{
             type: "text",
-            name: "description",
-            placeholder: "Item description",
-            value: this.props.item.description,
+            name: "descriptionName",
+            placeholder: "name",
+            value: this.props.item.descriptionName,
+            id: this.props.item.id
+          }}/>
+                    <EditableField
+            onItemizedItemEdit={this.props.onItemizedItemEdit}
+            cellData={{
+            type: "text",
+            name: "descriptionQuantity",
+            placeholder: "quantity",
+            value: this.props.item.descriptionQuantity,
+            id: this.props.item.id
+          }}/>
+                    <EditableField
+            onItemizedItemEdit={this.props.onItemizedItemEdit}
+            cellData={{
+            type: "text",
+            name: "descriptionContacts",
+            placeholder: "contacts",
+            value: this.props.item.descriptionContacts,
             id: this.props.item.id
           }}/>
           <EditableField
