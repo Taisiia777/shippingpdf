@@ -9,6 +9,8 @@ import InvoiceItem from './InvoiceItem';
 import InvoiceModal from './InvoiceModal';
 import InputGroup from 'react-bootstrap/InputGroup';
 import Modal from 'react-bootstrap/Modal';
+import template1Image from './template1.png'; // путь к вашему изображению для шаблона 1
+import template2Image from './template2.png'; // путь к вашему изображению для шаблона 2
 
 class InvoiceForm extends React.Component {
   constructor(props) {
@@ -253,18 +255,23 @@ class InvoiceForm extends React.Component {
     // </Form>)
       return (
       <div>
-              {/* Модальное окно для выбора шаблона */}
-              <Modal show={this.state.showTemplateModal} centered>
-          <Modal.Header>
-            <Modal.Title>Выберите шаблон для PDF</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <div className="d-flex justify-content-around">
-              <Button variant="primary" onClick={() => this.selectTemplate('template1')}>Шаблон 1</Button>
-              <Button variant="secondary" onClick={() => this.selectTemplate('template2')}>Шаблон 2</Button>
-            </div>
-          </Modal.Body>
-        </Modal>
+ 
+<Modal show={this.state.showTemplateModal} centered>
+  <Modal.Header>
+    <Modal.Title>Выберите шаблон для PDF</Modal.Title>
+  </Modal.Header>
+  <Modal.Body>
+    <div className="d-flex justify-content-around">
+      <Button variant="primary" onClick={() => this.selectTemplate('template1')}>
+        <img src={template1Image} alt="Шаблон 1" style={{ width: '150px', marginRight: '10px' }} />
+      </Button>
+      <Button variant="secondary" onClick={() => this.selectTemplate('template2')}>
+        <img src={template2Image} alt="Шаблон 2" style={{ width: '150px', marginRight: '10px' }} />
+      </Button>
+    </div>
+  </Modal.Body>
+</Modal>
+
         {this.state.selectedTemplate === 'template1' ? (
 
       <Form onSubmit={this.openModal}>
