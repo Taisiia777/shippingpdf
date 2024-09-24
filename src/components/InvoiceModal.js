@@ -58,6 +58,9 @@
     console.log(pdfFont);
     const textSize = 8; // Размер шрифта
     const maxWidth = 265  ; // Ограничение по ширине текста
+    const maxWidth1 = 120  ; // Ограничение по ширине текста
+    const textSize1 = 18; // Размер шрифта
+
     const lineHeight = textSize * 1.2; // Межстрочный интервал
 
     // Функция для отрисовки текста с переносом на новую строку
@@ -76,6 +79,37 @@
         yPosition -= lineHeight; // Сдвиг вниз для каждой новой строки
       });
     };
+    const drawTextWithWrappingBig = (text, x, y) => {
+      const lines = splitTextIntoLines(text, maxWidth, textSize1, pdfFont); 
+      let yPosition = y;
+      
+      lines.forEach(line => {
+        firstPage.drawText(line, {
+          x,
+          y: yPosition,
+          size: textSize1,
+          color: rgb(0, 0, 0),
+          font: pdfFont, // шрифт, который вы встраиваете
+        });
+        yPosition -= lineHeight; // Сдвиг вниз для каждой новой строки
+      });
+    };
+        // Функция для отрисовки текста с переносом на новую строку
+        const drawTextWithWrapping100 = (text, x, y) => {
+          const lines = splitTextIntoLines(text, maxWidth1, textSize, pdfFont); 
+          let yPosition = y;
+          
+          lines.forEach(line => {
+            firstPage.drawText(line, {
+              x,
+              y: yPosition,
+              size: textSize,
+              color: rgb(0, 0, 0),
+              font: pdfFont, // шрифт, который вы встраиваете
+            });
+            yPosition -= lineHeight; // Сдвиг вниз для каждой новой строки
+          });
+        };
     if (props.selectedTemplate === 'template1') {
 
     // Отрисовка с переносом текста для каждого поля
@@ -128,54 +162,62 @@
     drawTextWithWrapping(`${props.info.issue}`, 175, height - 704);
     drawTextWithWrapping(`${props.info.slr}`, 400, height - 787);
   } else {
-    // Отрисовка с переносом текста для каждого поля
-    // drawTextWithWrapping(`${props.info.billTo}`, 45, height - 35);
-    // drawTextWithWrapping(`${props.info.shipper}`, 45, height - 55);
-    // drawTextWithWrapping(`${props.info.shipper1}`, 45, height - 75);
-    // drawTextWithWrapping(`${props.info.billToEmail}`, 45, height - 115);
-    // drawTextWithWrapping(`${props.info.consignee}`, 45, height - 135);
-    // drawTextWithWrapping(`${props.info.consignee1}`, 45, height - 155);
-    // drawTextWithWrapping(`${props.info.billToAddress}`, 45, height - 185);
-    // drawTextWithWrapping(`${props.info.notify}`, 45, height - 195);
-    // drawTextWithWrapping(`${props.info.notify1}`, 45, height - 205);
-    drawTextWithWrapping(`${props.info.billFrom}`, 410, height - 40);
+    drawTextWithWrapping(`${props.info.billTo}`, 45, height - 35);
+    drawTextWithWrapping(`${props.info.shipper}`, 45, height - 55);
+    drawTextWithWrapping(`${props.info.shipper1}`, 45, height - 75);
+    drawTextWithWrapping(`${props.info.billToEmail}`, 45, height - 112);
+    drawTextWithWrapping(`${props.info.consignee}`, 45, height - 132);
+    drawTextWithWrapping(`${props.info.consignee1}`, 45, height - 153);
+    drawTextWithWrapping(`${props.info.billToAddress}`, 45, height - 183);
+    drawTextWithWrapping(`${props.info.notify}`, 45, height - 193);
+    drawTextWithWrapping(`${props.info.notify1}`, 45, height - 203);
+    drawTextWithWrappingBig(`${props.info.billFrom}`, 405, height - 45);
     drawTextWithWrapping(`${props.info.billFromAddress}`, 45, height - 276);
     drawTextWithWrapping(`${props.info.voyage}`, 175, height - 275);
-    drawTextWithWrapping(`${props.info.port}`, 45, height - 305);
-    drawTextWithWrapping(`${props.info.portTo}`, 175, height - 305);
-    drawTextWithWrapping(`${props.info.place}`, 330, height - 305);
-    // props.items.map((item, i) => {
-    //   const yPosition = height - 330 - i * 80; // Увеличиваем отступ по высоте на 50 для каждого следующего элемента
-    //   drawTextWithWrapping(`${item.name} /`, 25, yPosition);       // Позиция для имени
-    //   drawTextWithWrapping(`${item.seal}`, 25, yPosition - 10);       // Позиция для имени
-    //   drawTextWithWrapping(`KGs`, 453, yPosition);     // Позиция для цены
-    //   drawTextWithWrapping(`${item.price}`, 450, yPosition - 10);     // Позиция для цены
-    //   drawTextWithWrapping(`${item.descriptionName}`, 157, yPosition - 1); // Позиция для описания
-    //   drawTextWithWrapping(`${item.descriptionQuantity}`, 157, yPosition - 11); // Позиция для описания
-    //   drawTextWithWrapping(`${item.descriptionContacts}`, 157, yPosition - 21); // Позиция для описания
-    //   drawTextWithWrapping(`HS CODE: ${item.hs}`, 155, yPosition - 53); // Позиция для описания
-    //   drawTextWithWrapping(`ED NO ${item.ed}`, 155, yPosition - 73); // Позиция для описания
+    drawTextWithWrapping(`${props.info.port}`, 45, height - 302);
+    drawTextWithWrapping(`${props.info.portTo}`, 200, height - 302);
+    drawTextWithWrapping(`${props.info.place}`, 365, height - 302);
 
-    // });
-    // drawTextWithWrapping(`CONTAINER NO`, 25, height - 542); // Позиция для описания
-    // drawTextWithWrapping(`SEAL NO`, 133, height - 542); // Позиция для описания
-    // drawTextWithWrapping(`PACKAGES(UNIT)`, 220, height - 542); // Позиция для описания
-    // drawTextWithWrapping(`GR. WEIGHT`, 343, height - 542); // Позиция для описания
+    props.items.map((item, i) => {
+      const yPosition = height - 330 - i * 80; // Увеличиваем отступ по высоте на 50 для каждого следующего элемента
+      drawTextWithWrapping100(`${item.name}`, 45, yPosition - 32);       // Позиция для имени
+      drawTextWithWrapping100(`${item.seal}`, 45, yPosition - 53);       // Позиция для имени
+      drawTextWithWrapping100(`KGs`, 455, yPosition -5 );     // Позиция для цены
+      drawTextWithWrapping100(`${item.price}`, 435, yPosition - 5);     // Позиция для цены
+      drawTextWithWrapping100(`${item.descriptionName}`, 45, yPosition - 75); // Позиция для описания
+      drawTextWithWrapping100(`SIZE : ${item.descriptionQuantity}`, 45, yPosition - 85); // Позиция для описания
+      drawTextWithWrapping100(`${item.descriptionContacts}`, 45, yPosition - 95); // Позиция для описания
+      drawTextWithWrapping100(`DATE OF MANUFACTURING: ${item.hs}`, 45, yPosition - 105); // Позиция для описания
+      drawTextWithWrapping100(`COUNTRY OF ORIGIN ${item.ed}`, 45, yPosition - 135); // Позиция для описания
+      drawTextWithWrapping100(`${item.pkgs}`, 185, yPosition - 5);     // Позиция для цены
+      drawTextWithWrapping100(`${item.pkgs1}`, 185, yPosition - 15);     // Позиция для цены
+      drawTextWithWrapping(`${item.load}`, 230, yPosition - 5);     // Позиция для цены
+      drawTextWithWrapping(`SOC : ${item.soc}`, 230, yPosition - 30);     // Позиция для цены
+      drawTextWithWrapping(`${item.material}`, 230, yPosition - 50);     // Позиция для цены
+      drawTextWithWrapping(`${item.contacts}`, 230, yPosition - 95);     // Позиция для цены
+      drawTextWithWrapping(`${item.measurement}`, 485, yPosition - 5);     // Позиция для цены
+      drawTextWithWrapping(`CBM`, 510, yPosition -5 );     // Позиция для цены
 
-    // firstPage.drawText(`--------------------------------------------------------------------------------------------------------------------------------------------------------------`, {
-    //   x: 25,
-    //   y: height - 550,
-    //   size: 8,
-    //   color: rgb(0, 0, 0),
-      
-    // });
-    // drawTextWithWrapping(`${props.info.containerNo}`, 25, height - 557); // Позиция для описания
-    // drawTextWithWrapping(`${props.info.sealNo}`, 133, height - 557); // Позиция для описания
-    // drawTextWithWrapping(`${props.info.packagesUnit}`, 220, height - 557); // Позиция для описания
-    // drawTextWithWrapping(`${props.info.grWeight}`, 343, height - 557); // Позиция для описания
-    // drawTextWithWrapping(`${props.info.freight}`, 27, height - 625);
-    // drawTextWithWrapping(`${props.info.issue}`, 175, height - 704);
-    // drawTextWithWrapping(`${props.info.slr}`, 400, height - 787);
+
+    });
+
+    drawTextWithWrapping(`${props.info.totalNo}`, 190, height - 561);
+    drawTextWithWrapping(`${props.info.currency1}`, 500, height - 561);
+    drawTextWithWrapping(`${props.info.revenueTons}`, 200, height - 586);
+    drawTextWithWrapping100(`${props.info.ratePer}`, 285, height - 636);
+    drawTextWithWrapping(`${props.info.prepairedAt}`, 110, height - 737);
+    drawTextWithWrapping(`${props.info.noBl}`, 290, height - 760);
+    drawTextWithWrapping(`${props.info.placeIssue}`, 400, height - 736);
+    drawTextWithWrapping(`${props.info.placeIssue1}`, 500, height - 736);
+    drawTextWithWrappingBig(`${props.info.asCarrier}`, 420, height - 755);
+    drawTextWithWrapping(`${props.info.dateBottom}`, 55, height - 785);
+
+
+
+
+
+
+    
   }
     const pdfBytes = await pdfDoc.save();
     const blob = new Blob([pdfBytes], { type: 'application/pdf' });
