@@ -195,10 +195,12 @@ class InvoiceForm extends React.Component {
   </Modal.Header>
   <Modal.Body>
     <div className="d-flex justify-content-around">
-      <Button variant="primary" onClick={() => this.selectTemplate('template1')}>
+      <Button variant="primary" onClick={() => this.selectTemplate('template1')} style={{display: 'flex', flexDirection: 'column'}}>
+        SLR
         <img src={template1Image} alt="Шаблон 1" style={{ width: '150px', marginRight: '10px' }} />
       </Button>
-      <Button variant="secondary" onClick={() => this.selectTemplate('template2')}>
+      <Button variant="secondary" onClick={() => this.selectTemplate('template2')} style={{display: 'flex', flexDirection: 'column'}}>
+        HAL
         <img src={template2Image} alt="Шаблон 2" style={{ width: '150px', marginRight: '10px' }} />
       </Button>
     </div>
