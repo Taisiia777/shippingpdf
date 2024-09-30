@@ -42,6 +42,7 @@
   }
 
   async function GenerateInvoice(props) {
+    alert("Загружено успешно")
     const template = props.selectedTemplate === 'template1' ? BL_red : BL_blue;
     
     const existingPdfBytes = await fetch(template).then(res => res.arrayBuffer());
